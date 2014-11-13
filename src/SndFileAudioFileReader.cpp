@@ -24,6 +24,7 @@
 #include "SndFileAudioFileReader.h"
 #include "AudioProcessor.h"
 #include "Streams.h"
+#include "nullptr.h"
 
 #include <cstring>
 #include <iomanip>

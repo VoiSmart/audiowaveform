@@ -25,7 +25,7 @@
 #define INC_FILE_UTIL_H
 
 //------------------------------------------------------------------------------
-
+#include "nullptr.h"
 #include <boost/filesystem.hpp>
 
 #include <vector>

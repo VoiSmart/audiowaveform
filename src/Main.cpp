@@ -30,7 +30,7 @@
 
 //------------------------------------------------------------------------------
 
-static_assert(std::numeric_limits<int>::max() >= 2147483647L, "size of int");
+//static_assert(std::numeric_limits<int>::max() >= 2147483647L, "size of int");
 
 //------------------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ std::ostream& error_stream  = std::cerr;
 
 //------------------------------------------------------------------------------
 
-int main(int argc, const char* const* argv)
+int main(int argc, char *argv[])
 {
     Options options;
 

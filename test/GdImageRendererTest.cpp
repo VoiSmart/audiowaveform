@@ -76,14 +76,15 @@ void GdImageRendererTest::testImageRendering(bool axis_labels)
     result = renderer_.create(buffer_, 5.0, 1000, 300, colors, axis_labels); // zoom: 128
     ASSERT_TRUE(result);
 
-    result = renderer_.saveAsPng(filename.c_str());
+    result = renderer_.saveAsPng(filename.string().c_str());
     ASSERT_TRUE(result);
 
     // Check file was created.
-    boost::system::error_code error_code;
-    boost::uintmax_t size = boost::filesystem::file_size(filename, error_code);
+    // boost::system::error_code error_code;
+    //boost::uintmax_t size = boost::filesystem::file_size(filename, error_code);
+    boost::uintmax_t size = boost::filesystem::file_size(filename);
 
-    ASSERT_THAT(error_code, Eq(boost::system::errc::success));
+    //ASSERT_THAT(error_code, Eq(boost::system::errc::success));
     ASSERT_THAT(size, Gt(0U));
 
     ASSERT_FALSE(output.str().empty());

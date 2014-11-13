@@ -59,7 +59,7 @@ TEST_F(WavFileWriterTest, shouldCreateEmptyWavFile)
     // Ensure temporary file is deleted at end of test.
     FileDeleter deleter(filename);
 
-    WavFileWriter writer(filename.c_str());
+    WavFileWriter writer(filename.string().c_str());
 
     const int sample_rate = 44100;
     const int channels    = 1;
@@ -70,11 +70,11 @@ TEST_F(WavFileWriterTest, shouldCreateEmptyWavFile)
 
     writer.done();
 
-    boost::system::error_code error_code;
-    boost::uintmax_t size = boost::filesystem::file_size(filename, error_code);
+    //boost::system::error_code error_code;
+    boost::uintmax_t size = boost::filesystem::file_size(filename);
 
     // Check file was created.
-    ASSERT_THAT(error_code, Eq(boost::system::errc::success));
+    //ASSERT_THAT(error_code, Eq(boost::system::errc::success));
 
     // Check file size: 44 byte WAV header
     ASSERT_THAT(size, Eq(44U));
@@ -92,7 +92,7 @@ TEST_F(WavFileWriterTest, shouldCreateMonoWavFile)
     // Ensure temporary file is deleted at end of test.
     FileDeleter deleter(filename);
 
-    WavFileWriter writer(filename.c_str());
+    WavFileWriter writer(filename.string().c_str());
 
     const int sample_rate = 44100;
     const int channels    = 1;
@@ -111,11 +111,11 @@ TEST_F(WavFileWriterTest, shouldCreateMonoWavFile)
 
     writer.done();
 
-    boost::system::error_code error_code;
-    boost::uintmax_t size = boost::filesystem::file_size(filename, error_code);
+    //boost::system::error_code error_code;
+    boost::uintmax_t size = boost::filesystem::file_size(filename);
 
     // Check file was created.
-    ASSERT_THAT(error_code, Eq(boost::system::errc::success));
+    // ASSERT_THAT(error_code, Eq(boost::system::errc::success));
 
     // Check file size: 44 byte WAV header + 1024 * 2 bytes waveform data
     ASSERT_THAT(size, Eq(44U + 1024 * 2));
@@ -134,7 +134,7 @@ TEST_F(WavFileWriterTest, shouldReportErrorIfUnableToCreateFile)
     boost::filesystem::path filename = FileUtil::getTempFilename();
     filename /= "test.wav";
 
-    WavFileWriter writer(filename.c_str());
+    WavFileWriter writer(filename.string().c_str());
 
     const int sample_rate = 44100;
     const int channels    = 1;

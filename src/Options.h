@@ -45,7 +45,7 @@ class Options
         Options& operator=(const Options&) = delete;
 
     public:
-        bool parseCommandLine(int argc, const char* const* argv);
+        bool parseCommandLine(int argc, char *argv[]);
 
         const std::string& getInputFilename() const
         {

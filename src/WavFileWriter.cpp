@@ -23,6 +23,7 @@
 
 #include "WavFileWriter.h"
 #include "Streams.h"
+#include "nullptr.h"
 
 #include <cassert>
 #include <cstring>

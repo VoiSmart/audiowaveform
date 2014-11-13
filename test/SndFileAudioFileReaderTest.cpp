@@ -126,7 +126,7 @@ static void testProcessStereo(const std::string& filename, const std::string& fo
     path /= filename;
 
     SndFileAudioFileReader reader;
-    bool result = reader.open(path.c_str());
+    bool result = reader.open(path.string().c_str());
 
     ASSERT_TRUE(result);
 
@@ -198,7 +198,7 @@ static void testProcessMono(const std::string& filename, const std::string& form
     path /= filename;
 
     SndFileAudioFileReader reader;
-    bool result = reader.open(path.c_str());
+    bool result = reader.open(path.string().c_str());
 
     ASSERT_TRUE(result);
 

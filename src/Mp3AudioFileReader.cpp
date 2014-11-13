@@ -53,6 +53,7 @@
 #include "Mp3AudioFileReader.h"
 #include "AudioProcessor.h"
 #include "Streams.h"
+#include "nullptr.h"
 
 extern "C" {
 #include "madlld-1.1p1/bstdfile.h"

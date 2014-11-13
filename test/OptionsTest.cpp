@@ -63,7 +63,7 @@ class OptionsTest : public Test
 
 TEST_F(OptionsTest, shouldReportErrorIfNoOptionsGiven)
 {
-    const char* const argv[] = { "appname" };
+    char *argv[] = { "appname" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
     ASSERT_FALSE(result);
@@ -77,7 +77,7 @@ TEST_F(OptionsTest, shouldReportErrorIfNoOptionsGiven)
 
 TEST_F(OptionsTest, shouldReturnFilenamesWithLongArgs)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "--input-filename", "test.mp3",
         "--output-filename", "test.dat"
     };
@@ -96,7 +96,7 @@ TEST_F(OptionsTest, shouldReturnFilenamesWithLongArgs)
 
 TEST_F(OptionsTest, shouldReturnFilenamesWithShortArgs)
 {
-    const char* const argv[] = { "appname", "-i", "test.mp3", "-o", "test.dat" };
+    char *argv[] = { "appname", "-i", "test.mp3", "-o", "test.dat" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
     ASSERT_TRUE(result);
@@ -112,7 +112,7 @@ TEST_F(OptionsTest, shouldReturnFilenamesWithShortArgs)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingInputFilename)
 {
-    const char* const argv[] = { "appname", "-i", "-o", "test.dat" };
+    char *argv[] = { "appname", "-i", "-o", "test.dat" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
     ASSERT_FALSE(result);
@@ -124,7 +124,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingInputFilename)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingOutputFilename)
 {
-    const char* const argv[] = { "appname", "-i", "test.mp3", "-o" };
+    char *argv[] = { "appname", "-i", "test.mp3", "-o" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
     ASSERT_FALSE(result);
@@ -136,7 +136,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingOutputFilename)
 
 TEST_F(OptionsTest, shouldReturnDefaultOptions)
 {
-    const char* const argv[] = { "appname", "-i", "test.mp3", "-o", "test.dat" };
+    char *argv[] = { "appname", "-i", "test.mp3", "-o", "test.dat" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
     ASSERT_TRUE(result);
@@ -158,7 +158,7 @@ TEST_F(OptionsTest, shouldReturnDefaultOptions)
 
 TEST_F(OptionsTest, shouldReturnStartTimeWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--start", "1234.5"
     };
 
@@ -175,7 +175,7 @@ TEST_F(OptionsTest, shouldReturnStartTimeWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnStartTimeWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-s", "1234.5"
     };
 
@@ -192,7 +192,7 @@ TEST_F(OptionsTest, shouldReturnStartTimeWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidStartTime)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-s", "invalid"
     };
 
@@ -206,7 +206,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidStartTime)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingStartTime)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-s"
     };
 
@@ -220,7 +220,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingStartTime)
 
 TEST_F(OptionsTest, shouldReturnEndTimeWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--end", "1234.5"
     };
 
@@ -238,7 +238,7 @@ TEST_F(OptionsTest, shouldReturnEndTimeWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnEndTimeWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-e", "1234.5"
     };
 
@@ -256,7 +256,7 @@ TEST_F(OptionsTest, shouldReturnEndTimeWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidEndTime)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-e", "invalid"
     };
 
@@ -270,7 +270,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidEndTime)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingEndTime)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-e"
     };
 
@@ -286,7 +286,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingEndTime)
 
 TEST_F(OptionsTest, shouldReturnDefaultEndTime)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat"
     };
 
@@ -304,7 +304,7 @@ TEST_F(OptionsTest, shouldReturnDefaultEndTime)
 
 TEST_F(OptionsTest, shouldReturnWidthWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--width", "12345"
     };
 
@@ -321,7 +321,7 @@ TEST_F(OptionsTest, shouldReturnWidthWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnWidthWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-w", "12345"
     };
 
@@ -338,7 +338,7 @@ TEST_F(OptionsTest, shouldReturnWidthWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidWidth)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-w", "invalid"
     };
 
@@ -352,7 +352,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidWidth)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingWidth)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-w"
     };
 
@@ -366,7 +366,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingWidth)
 
 TEST_F(OptionsTest, shouldReturnHeightWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--height", "23456"
     };
 
@@ -383,7 +383,7 @@ TEST_F(OptionsTest, shouldReturnHeightWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnHeightWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-h", "23456"
     };
 
@@ -400,7 +400,7 @@ TEST_F(OptionsTest, shouldReturnHeightWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidHeight)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-h", "invalid"
     };
 
@@ -414,7 +414,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidHeight)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingHeight)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-h"
     };
 
@@ -428,7 +428,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingHeight)
 
 TEST_F(OptionsTest, shouldReturnZoomWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--zoom", "1000"
     };
 
@@ -446,7 +446,7 @@ TEST_F(OptionsTest, shouldReturnZoomWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnZoomWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-z", "23456"
     };
 
@@ -464,7 +464,7 @@ TEST_F(OptionsTest, shouldReturnZoomWithShortArg)
 
 TEST_F(OptionsTest, shouldReturnDefaultZoomOption)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat"
     };
 
@@ -482,7 +482,7 @@ TEST_F(OptionsTest, shouldReturnDefaultZoomOption)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidZoom)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-z", "invalid"
     };
 
@@ -496,7 +496,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidZoom)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfZoomValueTooLarge)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-z", "2147483648" // INT_MAX + 1
     };
 
@@ -510,7 +510,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfZoomValueTooLarge)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingZoom)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-z"
     };
 
@@ -524,7 +524,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingZoom)
 
 TEST_F(OptionsTest, shouldReturnPixelsPerSecond)
 {
-    const char* const argv[] = {
+    char* argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--pixels-per-second", "200"
     };
 
@@ -542,7 +542,7 @@ TEST_F(OptionsTest, shouldReturnPixelsPerSecond)
 
 TEST_F(OptionsTest, shouldReturnDefaultPixelsPerSecondOption)
 {
-    const char* const argv[] = {
+    char* argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat"
     };
 
@@ -560,7 +560,7 @@ TEST_F(OptionsTest, shouldReturnDefaultPixelsPerSecondOption)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidPixelsPerSecond)
 {
-    const char* const argv[] = {
+    char* argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--pixels-per-second", "invalid"
     };
 
@@ -574,7 +574,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidPixelsPerSecond)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingPixelsPerSecond)
 {
-    const char* const argv[] = {
+    char* argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--pixels-per-second"
     };
 
@@ -588,7 +588,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingPixelsPerSecond)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfPixelsPerSecondValueTooLarge)
 {
-    const char* const argv[] = {
+    char* argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--pixels-per-second", "2147483648" // INT_MAX + 1
     };
 
@@ -602,7 +602,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfPixelsPerSecondValueTooLarge)
 
 TEST_F(OptionsTest, shouldReturnBitsWithLongArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--bits", "8"
     };
 
@@ -620,7 +620,7 @@ TEST_F(OptionsTest, shouldReturnBitsWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnBitsWithShortArg)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-b", "16"
     };
 
@@ -638,7 +638,7 @@ TEST_F(OptionsTest, shouldReturnBitsWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfBitsInvalid)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "-b", "3"
     };
 
@@ -656,7 +656,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfBitsInvalid)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfInvalidBits)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--bits", "invalid"
     };
 
@@ -670,7 +670,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfInvalidBits)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfMissingBits)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat", "--bits"
     };
 
@@ -684,7 +684,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfMissingBits)
 
 TEST_F(OptionsTest, shouldReturnDefaultBitsOption)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.mp3", "-o", "test.dat"
     };
 
@@ -702,7 +702,7 @@ TEST_F(OptionsTest, shouldReturnDefaultBitsOption)
 
 TEST_F(OptionsTest, shouldDisableAxisLabelRendering)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.dat", "-o", "test.png", "--no-axis-labels"
     };
 
@@ -718,7 +718,7 @@ TEST_F(OptionsTest, shouldDisableAxisLabelRendering)
 
 TEST_F(OptionsTest, shouldEnableAxisLabelRendering)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.dat", "-o", "test.png", "--with-axis-labels"
     };
 
@@ -734,7 +734,7 @@ TEST_F(OptionsTest, shouldEnableAxisLabelRendering)
 
 TEST_F(OptionsTest, shouldEnableAxisLabelRenderingByDefault)
 {
-    const char* const argv[] = {
+    char *argv[] = {
         "appname", "-i", "test.dat", "-o", "test.png"
     };
 
@@ -750,7 +750,7 @@ TEST_F(OptionsTest, shouldEnableAxisLabelRenderingByDefault)
 
 TEST_F(OptionsTest, shouldReturnHelpFlag)
 {
-    const char* const argv[] = { "appname", "--help" };
+    char *argv[] = { "appname", "--help" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
 
@@ -762,7 +762,7 @@ TEST_F(OptionsTest, shouldReturnHelpFlag)
 
 TEST_F(OptionsTest, shouldReturnVersionFlagWithLongArg)
 {
-    const char* const argv[] = { "appname", "--version" };
+    char *argv[] = { "appname", "--version" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
 
@@ -774,7 +774,7 @@ TEST_F(OptionsTest, shouldReturnVersionFlagWithLongArg)
 
 TEST_F(OptionsTest, shouldReturnVersionFlagWithShortArg)
 {
-    const char* const argv[] = { "appname", "-v" };
+    char *argv[] = { "appname", "-v" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
 
@@ -786,7 +786,7 @@ TEST_F(OptionsTest, shouldReturnVersionFlagWithShortArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfUnknownLongArg)
 {
-    const char* const argv[] = { "appname", "--unknown" };
+    char *argv[] = { "appname", "--unknown" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
 
@@ -798,7 +798,7 @@ TEST_F(OptionsTest, shouldDisplayErrorIfUnknownLongArg)
 
 TEST_F(OptionsTest, shouldDisplayErrorIfUnknownShortArg)
 {
-    const char* const argv[] = { "appname", "-u" };
+    char *argv[] = { "appname", "-u" };
 
     bool result = options_.parseCommandLine(ARRAY_LENGTH(argv), argv);
 
@@ -821,7 +821,7 @@ TEST_F(OptionsTest, shouldOutputVersionInfo)
 
 TEST_F(OptionsTest, shouldOutputUsageInfo)
 {
-    const char* const argv[] = { "appname" };
+    char *argv[] = { "appname" };
 
     // Must call parseCommandLine first...
     options_.parseCommandLine(ARRAY_LENGTH(argv), argv);

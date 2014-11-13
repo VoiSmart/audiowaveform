@@ -28,6 +28,7 @@
 #include "TimeUtil.h"
 #include "WaveformBuffer.h"
 #include "WaveformColors.h"
+#include "nullptr.h"
 
 #include <gdfonts.h>
 

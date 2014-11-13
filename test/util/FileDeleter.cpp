@@ -36,7 +36,7 @@ FileDeleter::FileDeleter(const boost::filesystem::path& filename) :
 
 FileDeleter::~FileDeleter()
 {
-    unlink(filename_.c_str());
+    unlink(filename_.string().c_str());
 }
 
 //------------------------------------------------------------------------------

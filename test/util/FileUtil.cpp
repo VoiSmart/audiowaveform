@@ -54,7 +54,7 @@ std::vector<uint8_t> readFile(const boost::filesystem::path& filename)
 
     std::vector<uint8_t> data(size);
 
-    std::ifstream file(filename.c_str(), std::ios::in | std::ios::binary);
+    std::ifstream file(filename.string().c_str(), std::ios::in | std::ios::binary);
     file.read(reinterpret_cast<char*>(&data[0]), size);
 
     return data;
@@ -64,7 +64,7 @@ std::vector<uint8_t> readFile(const boost::filesystem::path& filename)
 
 std::string readTextFile(const boost::filesystem::path& filename)
 {
-    std::ifstream stream(filename.c_str(), std::ios::in);
+    std::ifstream stream(filename.string().c_str(), std::ios::in);
 
     std::string str;
 

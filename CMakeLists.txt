@@ -70,7 +70,7 @@ message(STATUS "Building version ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PAT
 find_package(LibGD REQUIRED)
 find_package(LibSndFile REQUIRED)
 find_package(LibMad REQUIRED)
-find_package(Boost 1.46.0 COMPONENTS program_options filesystem regex system REQUIRED)
+find_package(Boost 1.41.0 COMPONENTS program_options filesystem regex system REQUIRED)
 
 message(STATUS "Boost_INCLUDE_DIRS='${Boost_INCLUDE_DIRS}'")
 message(STATUS "Boost_LIBRARIES='${Boost_LIBRARIES}'")
@@ -143,8 +143,8 @@ if(CMAKE_VERSION VERSION_LESS "2.8.10")
     string(REGEX REPLACE ".*([0-9]\\.[0-9]\\.[0-9]).*" "\\1" CMAKE_CXX_COMPILER_VERSION ${COMPILER_VERSION_STRING})
 endif()
 
-if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "4.6.3")
-    message(FATAL_ERROR "g++ 4.6.3 or later required")
+if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "4.4.7")
+    message(FATAL_ERROR "g++ 4.4.7 or later required")
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")

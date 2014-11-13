@@ -22,6 +22,7 @@
 //------------------------------------------------------------------------------
 
 #include "Rgba.h"
+#include "nullptr.h"
 
 #include <boost/regex.hpp>
 

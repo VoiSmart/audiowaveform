@@ -63,7 +63,7 @@ static bool hasOptionValue(const po::variables_map& variables_map, const char* o
 
 //------------------------------------------------------------------------------
 
-bool Options::parseCommandLine(int argc, const char* const* argv)
+bool Options::parseCommandLine(int argc, char *argv[])
 {
     bool success = true;
 
@@ -77,11 +77,11 @@ bool Options::parseCommandLine(int argc, const char* const* argv)
         "show version information"
     )(
         "input-filename,i",
-        po::value<std::string>(&input_filename_)->required(),
+        po::value<std::string>(&input_filename_),
         "input file name (.mp3, .wav, .flac, .dat)"
     )(
         "output-filename,o",
-        po::value<std::string>(&output_filename_)->required(),
+        po::value<std::string>(&output_filename_),
         "output file name (.wav, .dat, .png, .json)"
     )(
         "zoom,z",
@@ -177,6 +177,13 @@ bool Options::parseCommandLine(int argc, const char* const* argv)
         if (bits_ != 8 && bits_ != 16) {
             error_stream << "Invalid bits: must be either 8 or 16\n";
             success = false;
+        }
+
+        if(input_filename_.empty()) {
+            //error_stream << "Missing input filename\n";
+            throw(std::runtime_error("Missing input filename\n"));
+        } else if(output_filename_.empty()) {
+            throw(std::runtime_error("Missing output filename\n"));
         }
     }
     catch (std::runtime_error& e) {
